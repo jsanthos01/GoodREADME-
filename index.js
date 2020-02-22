@@ -90,9 +90,9 @@ async function getInfo() {
         \n## Table of Contents
         \n* [Installation](#Installation)\n* [Usage](#Usage)\n* [Contributors](#Contributors)\n* [Tests](Tests)\n* [License](#License)\n* [Author](#Author)
         \n## Installation
-        \n\`\`\` ${install} \`\`\`
+        \n\`\`\` ${install}\`\`\`
         \n## Usage
-        \n\`\`\` ${usage} \`\`\`
+        \n\`\`\` ${usage}\`\`\` 
         \n## Contributors
         ${info}
         \n## Tests
