@@ -19,12 +19,12 @@ async function getInfo() {
         },
         {
             type:"input",
-            message: "What is the description you want to add about the project?",
+            message: "Provide a description of your project?",
             name:"description"
         },
         {
             type:"input",
-            message: "What are the steps required to install your project? This could be a install command.",
+            message: "What are the steps required to install your project? This could be an install command.",
             name:"install"
         },
         {
@@ -39,7 +39,7 @@ async function getInfo() {
         },
         {
             type:"input",
-            message: "State your License URL.",
+            message: "Provide your License URL.",
             name:"licenseURL"
         },
         {
@@ -68,33 +68,35 @@ async function getInfo() {
     let githubData = githubInfo.data;
 
     //convert contributors section into an array
-    var contributorName = contributors.split(",");
     var contributorGitName = contributorUser.split(",");
     console.log(contributorGitName);
-    console.log(contributorName);
     
-    var info;
-    for (var i = 0; i < contributorGitName.length; i++){
+    var info = "";
+    for (var i = 0; i < contributorGitName.length; i++){   
+        console.log(contributorGitName[i]);
         var contriInfo = await axios.get(`https://api.github.com/users/${contributorGitName[i]}`);
         var contributorProfile = contriInfo.data.avatar_url;
-        var contributorUrl = contriInfo.data.html_url;
+        var contributorURL = contriInfo.data.html_url;
+        info = info + `\n[![ProfilePicture](${contributorProfile})](${contributorURL})`
     }
+    console.log(info);
 
-    //FORMAT GIVEN DATA 
+
+    // FORMAT GIVEN DATA 
 
     var formatInfo = `
         \n# ${title}
         \n${description}
         \n## Table of Contents
-        \n* [Installation](#${install})\n* [Usage](#${usage})\n* [Contributers](#${contributers})\n* [Tests](#${test})\n* [License](#${licenseName})
+        \n* [Installation](#Installation)\n* [Usage](#Usage)\n* [Contributors](#Contributors)\n* [Tests](Tests)\n* [License](#License)\n* [Author](#Author)
         \n## Installation
         \n\`\`\` ${install} \`\`\`
         \n## Usage
         \n\`\`\` ${usage} \`\`\`
         \n## Contributors
-        \n
+        ${info}
         \n## Tests
-        \n
+        \n${test}
         \n## License
         \n[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](${licenseURL})
         \n## Author
@@ -102,6 +104,7 @@ async function getInfo() {
         \n![ProfilePicture](${githubData.avatar_url})
         \nGithub Email: ${githubData.email}
         \nGithub Repos URL: ${githubData.repos_url}
+        
         `
     const formatedFile = fs.writeFileSync("readme.md", formatInfo );
     

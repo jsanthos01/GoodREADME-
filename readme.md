@@ -1,44 +1,24 @@
-
+# Good ReadMe Generator 
         
-# asd
-        
-asd
+This is a simple command-line application that automatically generated a README.md from the information that the user gives. The user will be prompted for their GitHub username. Through this, we will make a call to the GitHub API to retrieve their email and profile image. They will further be prompted on information that should be added inside their read me
         
 ## Table of Contents
-        
-* [Installation](#as)
-* [Usage](#a)
-* [Contributers](#undefined)
-* [Tests](#sa)
-* [License](#a)
-        
-## Installation
-        
-``` as ```
-        
-## Usage
-        
-``` a ```
-        
-## Contributers
-        
 
+* [Instructions](#Instructions)  
+* [Technologies](#Technologies)
+* [Installations](#Installations)
+* [License](#License)
         
-## Tests
+## Technologies
+The technologies used include: 
+* NodeJs
         
+## Installations
+        
+``` * npm install axios * npm install inquirer ```  
 
-        
+
 ## License
         
-[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](a)
-        
-## Author
-        
-null
-        
-![ProfilePicture](https://avatars2.githubusercontent.com/u/55720502?v=4)
-        
-Github Email: null
-        
-Github Repos URL: https://api.github.com/users/jsanthos01/repos
+[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)]()
         
